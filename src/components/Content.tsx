@@ -22,10 +22,11 @@ interface MovieProps {
   Runtime: string;
 }
 
-export function Content() {
-  // Complete aqui
-  const [selectedGenreId, setSelectedGenreId] = useState(1);
+interface SelectIdProps {
+  selectedGenreId: number;
+}
 
+export function Content({ selectedGenreId }: SelectIdProps) {
   const [movies, setMovies] = useState<MovieProps[]>([]);
   const [selectedGenre, setSelectedGenre] = useState<GenreResponseProps>({} as GenreResponseProps);
 

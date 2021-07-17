@@ -3,6 +3,7 @@ import { Button } from './Button';
 import { api } from '../services/api';
 
 import '../styles/sidebar.scss';
+import { Content } from './Content';
 
 interface GenreResponseProps {
   id: number;
@@ -11,9 +12,7 @@ interface GenreResponseProps {
 }  
 
 export function SideBar() {  
-  
   const [selectedGenreId, setSelectedGenreId] = useState(1);
-  
   const [genres, setGenres] = useState<GenreResponseProps[]>([]);
   
   useEffect(() => {
@@ -27,6 +26,7 @@ export function SideBar() {
     }
   
     return (
+      <>
         <nav className="sidebar">
           <span>Watch<p>Me</p></span>
   
@@ -43,6 +43,9 @@ export function SideBar() {
           </div>
   
         </nav>
+        <Content 
+          selectedGenreId={selectedGenreId} />
+        </>
     )
 }
 
